@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+.hidden {
+  display: none;
+}
+
+
+/* Bootstrap customize */
+.w-fit-content {
+  width: fit-content;
+}
+
+.btn-w {
+  width: 170px;
+}
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
