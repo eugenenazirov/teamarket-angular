@@ -9,7 +9,9 @@ import {FormsModule} from "@angular/forms";
 import {MainComponent} from './components/pages/main/main.component';
 import {CatalogComponent} from './components/pages/catalog/catalog.component';
 import {OrderComponent} from './components/pages/order/order.component';
-import { SliderComponent } from './components/blocks/slider/slider.component';
+import {SliderComponent} from './components/blocks/slider/slider.component';
+import {FaqComponent} from './components/blocks/faq/faq.component';
+import {GoodsComponent} from './components/blocks/goods/goods.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SliderComponent } from './components/blocks/slider/slider.component';
     MainComponent,
     CatalogComponent,
     OrderComponent,
-    SliderComponent
+    SliderComponent,
+    FaqComponent,
+    GoodsComponent
   ],
   imports: [
     BrowserModule,
