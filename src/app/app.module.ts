@@ -14,6 +14,7 @@ import {FaqComponent} from './components/blocks/faq/faq.component';
 import {GoodsComponent} from './components/blocks/goods/goods.component';
 import {ItemDetailsComponent} from './components/pages/item-details/item-details.component';
 import {OneItemComponent} from './components/blocks/one-item/one-item.component';
+import {OrderFormComponent} from './components/blocks/order-form/order-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {OneItemComponent} from './components/blocks/one-item/one-item.component'
     FaqComponent,
     GoodsComponent,
     ItemDetailsComponent,
-    OneItemComponent
+    OneItemComponent,
+    OrderFormComponent
   ],
   imports: [
     BrowserModule,

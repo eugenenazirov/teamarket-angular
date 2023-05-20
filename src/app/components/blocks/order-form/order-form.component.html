@@ -1,0 +1,49 @@
+<section class="form pt-4 pb-5">
+  <div class="container">
+    <form class="col-lg-6 m-auto" id="form" action="" method="post">
+      <h2 class="text-center mb-5">
+        Сделать заказ
+      </h2>
+      <div class="mb-3 row g-4 align-items-center">
+        <div class="col-sm-12 col-md-4">
+          <label for="inputFirstName" class="form-label">Имя</label>
+          <input type="text" id="inputFirstName" class="form-control"
+                 aria-describedby="firstNameHelpInline">
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <label for="inputLastName" class="form-label">Фамилия</label>
+          <input type="text" id="inputLastName" class="form-control"
+                 aria-describedby="lastNameHelpInline">
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <label for="inputPhone" class="form-label">Телефон</label>
+          <input type="tel" id="inputPhone" class="form-control"
+                 aria-describedby="phoneHelpInline">
+        </div>
+      </div>
+      <div class="mb-3 row g-4 align-items-center">
+        <div class="col">
+          <label for="inputCountry" class="form-label">Страна</label>
+          <input type="text" class="form-control" id="inputCountry" aria-describedby="emailHelp">
+        </div>
+        <div class="col">
+          <label for="inputPostalCode" class="form-label">Индекс</label>
+          <input type="number" class="form-control" id="inputPostalCode">
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="inputAddress" class="form-label">Адрес</label>
+        <input type="text" class="form-control" id="inputAddress">
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary btn-w hvr-forward">Отправить</button>
+      </div>
+    </form>
+    <div class="thanks">
+      <h2 class="text-center mb-5 hidden" id="thanks">
+        Спасибо за заказ,
+        мы свяжемся с вами в ближайшее время!
+      </h2>
+    </div>
+  </div>
+</section>
