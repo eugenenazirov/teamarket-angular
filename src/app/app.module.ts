@@ -12,6 +12,8 @@ import {OrderComponent} from './components/pages/order/order.component';
 import {SliderComponent} from './components/blocks/slider/slider.component';
 import {FaqComponent} from './components/blocks/faq/faq.component';
 import {GoodsComponent} from './components/blocks/goods/goods.component';
+import {ItemDetailsComponent} from './components/pages/item-details/item-details.component';
+import {OneItemComponent} from './components/blocks/one-item/one-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {GoodsComponent} from './components/blocks/goods/goods.component';
     OrderComponent,
     SliderComponent,
     FaqComponent,
-    GoodsComponent
+    GoodsComponent,
+    ItemDetailsComponent,
+    OneItemComponent
   ],
   imports: [
     BrowserModule,
