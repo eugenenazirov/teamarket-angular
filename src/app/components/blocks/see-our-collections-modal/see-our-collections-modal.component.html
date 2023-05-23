@@ -1,0 +1,27 @@
+<div
+  [ngClass]="{ 'show': isModalVisible }"
+  [style.display]="isModalVisible ? 'block' : 'none'"
+  class="modal fade show" id="seeOurCollections" tabindex="-1" aria-labelledby="exampleModalLabel" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Внимание! Не упустите возможность!</h1>
+        <button
+          (click)="hideModal()"
+          type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Посмотреть наши чайные коллекции 😃
+      </div>
+      <div class="modal-footer">
+        <button
+          (click)="hideModal(); goToCatalog();"
+          type="button" class="btn btn-primary">Смотреть</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  [ngClass]="{ 'show': isModalVisible }"
+  [style.display]="isModalVisible ? 'block' : 'none'"
+  class="modal-backdrop fade"></div>

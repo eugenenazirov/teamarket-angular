@@ -15,6 +15,7 @@ import {GoodsComponent} from './components/blocks/goods/goods.component';
 import {ItemDetailsComponent} from './components/pages/item-details/item-details.component';
 import {OneItemComponent} from './components/blocks/one-item/one-item.component';
 import {OrderFormComponent} from './components/blocks/order-form/order-form.component';
+import { SeeOurCollectionsModalComponent } from './components/blocks/see-our-collections-modal/see-our-collections-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {OrderFormComponent} from './components/blocks/order-form/order-form.comp
     GoodsComponent,
     ItemDetailsComponent,
     OneItemComponent,
-    OrderFormComponent
+    OrderFormComponent,
+    SeeOurCollectionsModalComponent
   ],
   imports: [
     BrowserModule,
