@@ -1,4 +1,4 @@
-<section class="form pt-4 pb-5">
+<section class="form pt-5 pb-5">
   <div class="container">
     <form class="col-lg-6 m-auto" id="form" action="" method="post">
       <h2 class="text-center mb-5">
@@ -31,9 +31,17 @@
           <input type="number" class="form-control" id="inputPostalCode">
         </div>
       </div>
-      <div class="mb-4">
+      <div class="mb-3">
         <label for="inputAddress" class="form-label">Адрес</label>
         <input type="text" class="form-control" id="inputAddress">
+      </div>
+      <div class="mb-3">
+        <label for="inputAddress" class="form-label">Товар</label>
+        <input disabled type="text" class="form-control" id="product">
+      </div>
+      <div class="mb-3">
+        <label for="comment" class="form-label">Комментарий к заказу</label>
+        <textarea id="comment" class="form-control" aria-label="With textarea" data-dl-input-translation="true"></textarea>
       </div>
       <div class="mb-3">
         <button type="submit" class="btn btn-primary btn-w hvr-forward">Отправить</button>
