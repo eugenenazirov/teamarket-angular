@@ -14,7 +14,6 @@ export class GoodsComponent implements OnInit {
 
   constructor(
     private teaItemService: TeaItemService,
-    private http: HttpClient
   ) {
   }
 

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {TeaItem} from "../../types/tea-item";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {TeaItemService} from "../../../services/tea-item.service";
@@ -21,7 +20,6 @@ export class OneItemComponent implements OnInit {
   constructor(
     private teaItemService: TeaItemService,
     private router: Router,
-    private http: HttpClient,
     private activatedRoute: ActivatedRoute,
   ) {}
 
