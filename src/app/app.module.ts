@@ -18,6 +18,7 @@ import {OrderFormComponent} from './components/blocks/order-form/order-form.comp
 import {SeeOurCollectionsModalComponent} from './components/blocks/see-our-collections-modal/see-our-collections-modal.component';
 import {HttpClientModule} from "@angular/common/http";
 import { TextOverflowPipe } from './pipes/text-overflow.pipe';
+import {TeaItemService} from "./services/tea-item.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { TextOverflowPipe } from './pipes/text-overflow.pipe';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TeaItemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

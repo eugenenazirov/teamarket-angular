@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {TeaItem} from "../../types/tea-item";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {TeaItemService} from "../../../services/tea-item.service";
 
 @Component({
   selector: 'app-one-item',
@@ -18,6 +19,7 @@ export class OneItemComponent implements OnInit {
     image: ''
   }
   constructor(
+    private teaItemService: TeaItemService,
     private router: Router,
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -27,7 +29,7 @@ export class OneItemComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       const id = params['id'];
       if (id) {
-        this.http.get<TeaItem>('https://testologia.site/tea', {params: {id: id}})
+        this.teaItemService.getTeaItem(id)
           .subscribe({
             next: (teaItem) => {
               this.teaItem = teaItem;
