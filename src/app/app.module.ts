@@ -16,6 +16,7 @@ import {ItemDetailsComponent} from './components/pages/item-details/item-details
 import {OneItemComponent} from './components/blocks/one-item/one-item.component';
 import {OrderFormComponent} from './components/blocks/order-form/order-form.component';
 import { SeeOurCollectionsModalComponent } from './components/blocks/see-our-collections-modal/see-our-collections-modal.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SeeOurCollectionsModalComponent } from './components/blocks/see-our-col
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
