@@ -37,7 +37,9 @@
       </div>
       <div class="mb-3">
         <label for="inputAddress" class="form-label">Товар</label>
-        <input disabled type="text" class="form-control" id="product">
+        <input
+          [value]="itemTitle"
+          disabled type="text" class="form-control" id="product">
       </div>
       <div class="mb-3">
         <label for="comment" class="form-label">Комментарий к заказу</label>

@@ -24,6 +24,10 @@ export class OneItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.showTeaItem();
+  }
+
+  private showTeaItem(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
       const id = params['id'];
       if (id) {
@@ -41,5 +45,9 @@ export class OneItemComponent implements OnInit {
         this.router.navigate(['/catalog']);
       }
     });
+  }
+
+  public buyItem(): void {
+    this.router.navigate(['/order'], {queryParams: {item: this.teaItem.title}});
   }
 }
