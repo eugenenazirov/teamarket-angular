@@ -2,24 +2,34 @@
   <div class="container">
     <h2 class="text-center mb-5">Наши чайные коллекции</h2>
     <div class="container">
-      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+      <div
+        *ngIf="!isEmptyPage"
+        class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
         <div class="col"
              *ngFor="let teaItem of teaItems">
           <div class="card h-100 tea-item-card">
             <a class="card__image"
-               routerLink="/item"
-               [queryParams]="{id: teaItem.id}">
+               [routerLink]="['/item', teaItem.id]">
               <img src="{{teaItem.image}}" class="card-img-top" alt="{{teaItem.title}}">
             </a>
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{teaItem.title}}</h5>
               <p class="card-text">{{teaItem.description | textOverflow : 120}}</p>
               <a
-                routerLink="/item"
-                [queryParams]="{id: teaItem.id}"
+                [routerLink]="['/item', teaItem.id]"
                 class="btn btn-primary mt-auto w-fit-content btn-w hvr-forward">Подробнее</a>
             </div>
           </div>
+        </div>
+      </div>
+      <div
+        *ngIf="isEmptyPage"
+        class="empty-message">
+        <div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Ошибка!</h4>
+          <p>Не удалось получить информацию о каталоге товаров от сервера. Попробуйте обновить страницу</p>
+          <hr>
+          <p class="mb-0">Мы делаем все возможное чтобы наладить работу сайта</p>
         </div>
       </div>
     </div>

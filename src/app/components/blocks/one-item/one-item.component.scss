@@ -1,11 +1,14 @@
-.one-item-block {
+.one-item-block, .empty-message {
   max-width: 700px;
   margin: 0 auto;
 }
 
+.full-height {
+  min-height: 87vh;
+}
+
 .image-wrapper {
-  width: 700px;
-  height: 350px;
+  width: 500px;
 }
 
 .image-img {
