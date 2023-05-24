@@ -17,6 +17,7 @@ import {OneItemComponent} from './components/blocks/one-item/one-item.component'
 import {OrderFormComponent} from './components/blocks/order-form/order-form.component';
 import {SeeOurCollectionsModalComponent} from './components/blocks/see-our-collections-modal/see-our-collections-modal.component';
 import {HttpClientModule} from "@angular/common/http";
+import { TextOverflowPipe } from './pipes/text-overflow.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {HttpClientModule} from "@angular/common/http";
     ItemDetailsComponent,
     OneItemComponent,
     OrderFormComponent,
-    SeeOurCollectionsModalComponent
+    SeeOurCollectionsModalComponent,
+    TextOverflowPipe
   ],
   imports: [
     BrowserModule,
