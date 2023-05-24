@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from 'src/app/components/common/header/header.component';
 import {FooterComponent} from './components/common/footer/footer.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MainComponent} from './components/pages/main/main.component';
 import {CatalogComponent} from './components/pages/catalog/catalog.component';
 import {OrderComponent} from './components/pages/order/order.component';
@@ -37,12 +37,13 @@ import {TeaItemService} from "./services/tea-item.service";
     SeeOurCollectionsModalComponent,
     TextOverflowPipe
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [
     TeaItemService
   ],
