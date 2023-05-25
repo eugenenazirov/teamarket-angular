@@ -10,6 +10,9 @@ import {OrderFormDataType} from "../../../types/order-form-data.type";
   styleUrls: ['./order-form.component.scss']
 })
 export class OrderFormComponent implements OnInit {
+  public formSubmitted: boolean = false;
+  public successfulResponse: boolean = false;
+
   public orderForm: FormGroup = this.fb.group({
     firstName: ['', [Validators.required, Validators.pattern('^[а-яА-Яa-zA-Z\\s]*$')]],
     lastName: ['', [Validators.required, Validators.pattern('^[а-яА-Яa-zA-Z\\s]*$')]],
@@ -77,7 +80,6 @@ export class OrderFormComponent implements OnInit {
 
   public prepareFormData(): OrderFormDataType {
     return {
-      name: this.firstName?.value,
       last_name: this.lastName?.value,
       phone: this.phone?.value,
       country: this.country?.value,
@@ -95,14 +97,17 @@ export class OrderFormComponent implements OnInit {
       return;
     }
 
+    this.formSubmitted = true;
     const formData: OrderFormDataType = this.prepareFormData();
 
     this.teaItemService.orderTeaItem(formData)
       .subscribe({
         next: (response) => {
+          this.successfulResponse = response.success === 1;
           console.log(response);
         },
         error: (error) => {
+          this.successfulResponse = false;
           console.log(error);
         }
       });

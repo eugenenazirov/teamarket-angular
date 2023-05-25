@@ -1,5 +1,4 @@
 export type OrderFormDataType = {
-  name: string,
   last_name: string,
   phone: string,
   country: string,
