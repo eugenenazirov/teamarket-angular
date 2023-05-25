@@ -1,4 +1,4 @@
-export type TeaItem = {
+export type TeaItemType = {
   id: number,
   image: string,
   title: string,
