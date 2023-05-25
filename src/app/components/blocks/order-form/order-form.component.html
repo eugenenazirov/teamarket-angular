@@ -9,22 +9,55 @@
           <label for="inputFirstName" class="form-label">Имя</label>
           <input
             formControlName="firstName"
+            [ngClass]="{'is-invalid': firstName?.invalid && firstName?.touched}"
             type="text" id="inputFirstName" class="form-control"
             aria-describedby="firstNameHelpInline">
+          <div
+            *ngIf="firstName?.errors?.['required']"
+            class="invalid-feedback">
+            Пожалуйста, введите имя
+          </div>
+          <div
+            *ngIf="firstName?.errors?.['pattern']"
+            class="invalid-feedback">
+            Имя может содержать только буквы
+          </div>
         </div>
         <div class="col-sm-12 col-md-4">
           <label for="inputLastName" class="form-label">Фамилия</label>
           <input
             formControlName="lastName"
+            [ngClass]="{'is-invalid': lastName?.invalid && lastName?.touched}"
             type="text" id="inputLastName" class="form-control"
             aria-describedby="lastNameHelpInline">
+            <div
+              *ngIf="lastName?.errors?.['required']"
+              class="invalid-feedback">
+              Пожалуйста, введите фамилию
+            </div>
+            <div
+              *ngIf="lastName?.errors?.['pattern']"
+              class="invalid-feedback">
+              Фамилия может содержать только буквы
+            </div>
         </div>
         <div class="col-sm-12 col-md-4">
           <label for="inputPhone" class="form-label">Телефон</label>
           <input
             formControlName="phone"
-            type="tel" id="inputPhone" class="form-control"
+            [ngClass]="{'is-invalid': phone?.invalid && phone?.touched}"
+            type="text" id="inputPhone" class="form-control"
             aria-describedby="phoneHelpInline">
+            <div
+              *ngIf="phone?.errors?.['required']"
+              class="invalid-feedback">
+              Пожалуйста, введите номер телефона
+            </div>
+            <div
+              *ngIf="phone?.errors?.['pattern']"
+              class="invalid-feedback">
+              Номер телефона должен содержать только 11 цифр и символ +
+            </div>
         </div>
       </div>
       <div class="mb-3 row g-4 align-items-center">
@@ -32,20 +65,58 @@
           <label for="inputCountry" class="form-label">Страна</label>
           <input
             formControlName="country"
+            [ngClass]="{'is-invalid': country?.invalid && country?.touched}"
             type="text" class="form-control" id="inputCountry" aria-describedby="emailHelp">
+          <div
+            *ngIf="lastName?.errors?.['required']"
+            class="invalid-feedback">
+            Страна может содержать только буквы
+          </div>
+          <div
+            *ngIf="lastName?.errors?.['pattern']"
+            class="invalid-feedback">
+            Страна может содержать только буквы
+          </div>
         </div>
         <div class="col">
           <label for="inputPostalCode" class="form-label">Индекс</label>
           <input
             formControlName="zip"
-            type="number" class="form-control" id="inputPostalCode">
+            [ngClass]="{'is-invalid': zip?.invalid && zip?.touched}"
+            type="text" class="form-control" id="inputPostalCode">
+          <div
+            *ngIf="zip?.errors?.['required']"
+            class="invalid-feedback">
+            Пожалуйста, введите индекс
+          </div>
+          <div
+            *ngIf="zip?.errors?.['pattern']"
+            class="invalid-feedback">
+            Индекс может содержать только цифры и символ дефиса
+          </div>
         </div>
       </div>
       <div class="mb-3">
         <label for="inputAddress" class="form-label">Адрес</label>
         <input
           formControlName="address"
+          [ngClass]="{'is-invalid': address?.invalid && address?.touched}"
           type="text" class="form-control" id="inputAddress">
+        <div
+          *ngIf="address?.errors?.['required']"
+          class="invalid-feedback">
+          Пожалуйста, введите адрес
+        </div>
+        <div
+          *ngIf="address?.errors?.['pattern']"
+          class="invalid-feedback">
+          Адрес может содержать только буквы, цифры и символы ., -, /
+        </div>
+        <div
+          *ngIf="address?.errors?.['minlength']"
+          class="invalid-feedback">
+          Адрес должен содержать не менее 10 символов
+        </div>
       </div>
       <div class="mb-3">
         <label for="teaItem" class="form-label">Товар</label>
@@ -61,7 +132,7 @@
           data-dl-input-translation="true"></textarea>
       </div>
       <div class="mb-3">
-        <button type="submit" class="btn btn-primary btn-w hvr-forward">Отправить</button>
+        <button type="submit" class="btn btn-primary btn-w hvr-forward" (click)="onSubmit()">Отправить</button>
       </div>
     </form>
     <div class="thanks">

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TeaItem} from "../../types/tea-item";
+import {TeaItemType} from "../../../types/tea-item.type";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {TeaItemService} from "../../../services/tea-item.service";
 
@@ -10,7 +10,7 @@ import {TeaItemService} from "../../../services/tea-item.service";
 })
 export class OneItemComponent implements OnInit {
   public isEmptyPage: boolean = false;
-  public teaItem: TeaItem = {
+  public teaItem: TeaItemType = {
     id: 0,
     title: '',
     description: '',
