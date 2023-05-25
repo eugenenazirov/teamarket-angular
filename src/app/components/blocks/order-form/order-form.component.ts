@@ -77,6 +77,7 @@ export class OrderFormComponent implements OnInit {
 
   public prepareFormData(): OrderFormDataType {
     return {
+      name: this.firstName?.value,
       last_name: this.lastName?.value,
       phone: this.phone?.value,
       country: this.country?.value,
