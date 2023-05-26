@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TeaItemService} from "../../../services/tea-item.service";
 import {OrderFormDataType} from "../../../types/order-form-data.type";
+import {finalize, tap} from "rxjs";
 
 @Component({
   selector: 'app-order-form',
@@ -12,6 +13,7 @@ import {OrderFormDataType} from "../../../types/order-form-data.type";
 export class OrderFormComponent implements OnInit {
   public formSubmitted: boolean = false;
   public successfulResponse: boolean = false;
+  public loading: boolean = false;
 
   public orderForm: FormGroup = this.fb.group({
     firstName: ['', [Validators.required, Validators.pattern('^[а-яА-Яa-zA-Z\\s]*$')]],
@@ -92,25 +94,33 @@ export class OrderFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    //   TODO send data to server
     if (!this.formValid()){
       this.orderForm.markAllAsTouched();
       return;
     }
 
-    this.formSubmitted = true;
     const formData: OrderFormDataType = this.prepareFormData();
 
     this.teaItemService.orderTeaItem(formData)
+      .pipe(
+        tap(() => {
+          this.loading = true;
+          this.formSubmitted = true;
+        }),
+        finalize(() => {
+          this.loading = false;
+        }),
+      )
       .subscribe({
         next: (response) => {
           this.successfulResponse = response.success === 1;
           console.log(response);
         },
         error: (error) => {
+          this.formSubmitted = true;
           this.successfulResponse = false;
           console.log(error);
-        }
+        },
       });
   }
 }
