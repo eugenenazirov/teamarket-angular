@@ -15,10 +15,15 @@ import {GoodsComponent} from './components/blocks/goods/goods.component';
 import {ItemDetailsComponent} from './components/pages/item-details/item-details.component';
 import {OneItemComponent} from './components/blocks/one-item/one-item.component';
 import {OrderFormComponent} from './components/blocks/order-form/order-form.component';
-import {SeeOurCollectionsModalComponent} from './components/blocks/see-our-collections-modal/see-our-collections-modal.component';
+import {
+  SeeOurCollectionsModalComponent
+} from './components/blocks/see-our-collections-modal/see-our-collections-modal.component';
 import {HttpClientModule} from "@angular/common/http";
-import { TextOverflowPipe } from './pipes/text-overflow.pipe';
+import {TextOverflowPipe} from './pipes/text-overflow.pipe';
 import {TeaItemService} from "./services/tea-item.service";
+import {ErrorTimerService} from "./services/error-timer.service";
+import {ModalTimerService} from "./services/modal-timer.service";
+import {SearchItemsService} from "./services/search-items.service";
 
 @NgModule({
   declarations: [
@@ -37,15 +42,18 @@ import {TeaItemService} from "./services/tea-item.service";
     SeeOurCollectionsModalComponent,
     TextOverflowPipe
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   providers: [
-    TeaItemService
+    TeaItemService,
+    ModalTimerService,
+    SearchItemsService,
+    ErrorTimerService
   ],
   bootstrap: [AppComponent]
 })

@@ -37,7 +37,7 @@ export class OneItemComponent implements OnInit {
               this.teaItem = teaItem;
             },
             error: (err) => {
-              console.log(err);
+              console.error(err);
               this.isEmptyPage = true;
             }
           });

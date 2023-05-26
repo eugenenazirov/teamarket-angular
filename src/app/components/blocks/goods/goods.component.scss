@@ -4,8 +4,12 @@
 }
 
 .loader {
-  margin: 0 auto;
+  margin: 100px auto;
   display: flex;
   width: 100px;
   height: 100px;
+}
+
+.collections {
+  min-height: 80vh;
 }

@@ -1,9 +1,11 @@
 <section class="collections pt-4 pb-5">
   <div class="container">
-    <h2 class="text-center mb-5">Наши чайные коллекции</h2>
+    <h2 *ngIf="!isEmptyPage && !loading" class="text-center mb-5">Наши чайные коллекции</h2>
+    <h2 *ngIf="isEmptyPage && !loading" class="text-center mb-5">Ничего не найдено</h2>
+    <h2 *ngIf="loading" class="text-center mb-5">Пожалуйста, подождите...</h2>
     <div class="container">
       <div
-        *ngIf="!isEmptyPage"
+        *ngIf="!isErrorPage"
         class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
         <div class="col"
              *ngFor="let teaItem of teaItems">
@@ -23,7 +25,7 @@
         </div>
       </div>
       <div
-        *ngIf="isEmptyPage"
+        *ngIf="isErrorPage"
         class="empty-message">
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Ошибка!</h4>

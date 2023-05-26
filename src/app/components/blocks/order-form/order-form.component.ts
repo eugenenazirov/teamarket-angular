@@ -126,12 +126,11 @@ export class OrderFormComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           this.successfulResponse = response.success === 1;
-          console.log(response);
         },
         error: (error) => {
           this.formSubmitted = true;
           this.successfulResponse = false;
-          console.log(error);
+          console.error(error);
         },
       });
   }
