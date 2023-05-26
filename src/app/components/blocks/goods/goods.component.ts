@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {TeaItemType} from "../../../types/tea-item.type";
 import {TeaItemService} from "../../../services/tea-item.service";
+import {finalize, tap} from "rxjs";
 
 @Component({
   selector: 'app-goods',
@@ -11,6 +12,7 @@ import {TeaItemService} from "../../../services/tea-item.service";
 export class GoodsComponent implements OnInit {
   public teaItems: TeaItemType[] = [];
   public isEmptyPage: boolean = false;
+  public loading: boolean = false;
 
   constructor(
     private teaItemService: TeaItemService,
@@ -18,7 +20,11 @@ export class GoodsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loading = true
     this.teaItemService.getTeaItems()
+      .pipe(
+        finalize(() => this.loading = false)
+      )
       .subscribe({
         next: (teaItems) => {
           this.teaItems = teaItems;

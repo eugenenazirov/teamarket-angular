@@ -112,10 +112,11 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   }
 
   private sendFormData(formData: OrderFormDataType) {
+    this.loading = true;
+
     this.teaItemService.orderTeaItem(formData)
       .pipe(
         tap(() => {
-          this.loading = true;
           this.formSubmitted = true;
         }),
         finalize(() => {
