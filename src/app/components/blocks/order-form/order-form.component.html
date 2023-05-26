@@ -132,7 +132,9 @@
           data-dl-input-translation="true"></textarea>
       </div>
       <div class="mb-3">
-        <button type="button" class="btn btn-primary btn-w hvr-forward" (click)="onSubmit()">Отправить</button>
+        <button
+          [ngClass]="{'disabled': loading}"
+          type="button" class="btn btn-primary btn-w hvr-forward" (click)="onSubmit()">Отправить</button>
         <span *ngIf="formSubmitted && !successfulResponse" class="error-text link-danger mx-3">Произошла ошибка. Попробуйте еще раз</span>
       </div>
     </form>

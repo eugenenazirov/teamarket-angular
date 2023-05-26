@@ -1,19 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TeaItemService} from "../../../services/tea-item.service";
 import {OrderFormDataType} from "../../../types/order-form-data.type";
-import {finalize, tap} from "rxjs";
+import {finalize, Subscription, tap} from "rxjs";
+import {ErrorTimerService} from "../../../services/error-timer.service";
 
 @Component({
   selector: 'app-order-form',
   templateUrl: './order-form.component.html',
   styleUrls: ['./order-form.component.scss']
 })
-export class OrderFormComponent implements OnInit {
+export class OrderFormComponent implements OnInit, OnDestroy {
   public formSubmitted: boolean = false;
   public successfulResponse: boolean = false;
   public loading: boolean = false;
+  private timerSubscription: Subscription | null = null;
 
   public orderForm: FormGroup = this.fb.group({
     firstName: ['', [Validators.required, Validators.pattern('^[а-яА-Яa-zA-Z\\s]*$')]],
@@ -28,6 +30,7 @@ export class OrderFormComponent implements OnInit {
 
   constructor(
     private teaItemService: TeaItemService,
+    private errorTimerService: ErrorTimerService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
@@ -42,6 +45,10 @@ export class OrderFormComponent implements OnInit {
     } else {
       this.router.navigate(['/catalog']);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.timerSubscription?.unsubscribe();
   }
 
   public get firstName() {
@@ -94,13 +101,17 @@ export class OrderFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if (!this.formValid()){
+    if (!this.formValid()) {
       this.orderForm.markAllAsTouched();
       return;
     }
 
     const formData: OrderFormDataType = this.prepareFormData();
+    this.sendFormData(formData);
+    this.subscribeOnTimer();
+  }
 
+  private sendFormData(formData: OrderFormDataType) {
     this.teaItemService.orderTeaItem(formData)
       .pipe(
         tap(() => {
@@ -121,6 +132,18 @@ export class OrderFormComponent implements OnInit {
           this.successfulResponse = false;
           console.log(error);
         },
+      });
+  }
+
+  private subscribeOnTimer() {
+    this.timerSubscription = this.errorTimerService.timer$
+      .subscribe({
+        next: () => {
+          if (!this.successfulResponse) {
+            this.formSubmitted = false;
+            this.successfulResponse = true;
+          }
+        }
       });
   }
 }
