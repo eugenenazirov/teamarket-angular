@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {ModalTimerService} from "../../../services/modal-timer.service";
-import {Subscription} from "rxjs";
+import {delay, Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-see-our-collections-modal',
@@ -11,14 +10,15 @@ import {Subscription} from "rxjs";
 export class SeeOurCollectionsModalComponent implements OnInit, OnDestroy {
   public isModalVisible: boolean = false;
   private timerSubscription: Subscription | null = null;
+  private timer$: Observable<void> = new Observable<void>(observer => observer.next());
+
   constructor(
     private router: Router,
-    private timerService: ModalTimerService
   ) {
   }
 
   ngOnInit(): void {
-    this.timerService.timer.subscribe((): void => {
+    this.timerSubscription = this.timer$.pipe(delay(10000)).subscribe((): void => {
       this.showModal();
     });
   }

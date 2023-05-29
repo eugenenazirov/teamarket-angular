@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TeaItemService} from "../../../services/tea-item.service";
 import {OrderFormDataType} from "../../../types/order-form-data.type";
-import {finalize, Subscription, tap} from "rxjs";
+import {delay, finalize, Observable, Subscription, tap} from "rxjs";
 import {ErrorTimerService} from "../../../services/error-timer.service";
 
 @Component({
@@ -16,6 +16,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   public successfulResponse: boolean = false;
   public loading: boolean = false;
   private timerSubscription: Subscription | null = null;
+  private timer$: Observable<void> = new Observable<void>(observer => observer.next());
 
   public orderForm: FormGroup = this.fb.group({
     firstName: ['', [Validators.required, Validators.pattern('^[а-яА-Яa-zA-Z\\s]*$')]],
@@ -30,7 +31,6 @@ export class OrderFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private teaItemService: TeaItemService,
-    private errorTimerService: ErrorTimerService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
@@ -135,14 +135,13 @@ export class OrderFormComponent implements OnInit, OnDestroy {
       });
   }
 
-  private subscribeOnTimer() {
-    this.timerSubscription = this.errorTimerService.timer$
-      .subscribe({
-        next: () => {
-          if (!this.successfulResponse) {
-            this.formSubmitted = false;
-            this.successfulResponse = true;
-          }
+  private subscribeOnTimer(): void {
+    this.timerSubscription = this.timer$
+      .pipe(delay(3000))
+      .subscribe((): void => {
+        if (!this.successfulResponse) {
+          this.formSubmitted = false;
+          this.successfulResponse = true;
         }
       });
   }

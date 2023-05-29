@@ -27,7 +27,7 @@ export class TeaItemService {
   }
 
   public orderTeaItem(orderFormData: OrderFormDataType): Observable<OrderResponseType> {
-    return this.http.post<OrderResponseType>('https://testologia.site/order-tea', orderFormData);
+    return this.http.post<OrderResponseType>('https://testologia.sites/order-tea', orderFormData);
   }
 
   public checkResponseTypeAndReturnArray(teaItem: TeaItemType[]): TeaItemType[] {

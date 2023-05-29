@@ -21,8 +21,6 @@ import {
 import {HttpClientModule} from "@angular/common/http";
 import {TextOverflowPipe} from './pipes/text-overflow.pipe';
 import {TeaItemService} from "./services/tea-item.service";
-import {ErrorTimerService} from "./services/error-timer.service";
-import {ModalTimerService} from "./services/modal-timer.service";
 import {SearchItemsService} from "./services/search-items.service";
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
@@ -53,9 +51,7 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
   ],
   providers: [
     TeaItemService,
-    ModalTimerService,
     SearchItemsService,
-    ErrorTimerService
   ],
   bootstrap: [AppComponent]
 })
