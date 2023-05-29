@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {TeaItemType} from "../types/tea-item.type";
 import {HttpClient} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {map, Observable, tap} from "rxjs";
 import {OrderFormDataType} from "../types/order-form-data.type";
 import {OrderResponseType} from "../types/order-response.type";
 
@@ -13,8 +13,9 @@ export class TeaItemService {
 
   public getTeaItems(search?: string): Observable<TeaItemType[]> {
     if (search) {
-      return this.http.get<TeaItemType[]>('https://testologia.site/tea', {params: {search: search}})
+      return this.http.get<TeaItemType[]>('https://testologia.ru/tea', {params: {search: search}})
         .pipe(
+          tap((teaItem: TeaItemType[]) => console.log(teaItem)),
           map(this.checkResponseTypeAndReturnArray),
         );
     }
@@ -27,7 +28,7 @@ export class TeaItemService {
   }
 
   public orderTeaItem(orderFormData: OrderFormDataType): Observable<OrderResponseType> {
-    return this.http.post<OrderResponseType>('https://testologia.sites/order-tea', orderFormData);
+    return this.http.post<OrderResponseType>('https://testologia.site/order-tea', orderFormData);
   }
 
   public checkResponseTypeAndReturnArray(teaItem: TeaItemType[]): TeaItemType[] {
