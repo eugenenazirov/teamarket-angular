@@ -24,6 +24,7 @@ import {TeaItemService} from "./services/tea-item.service";
 import {ErrorTimerService} from "./services/error-timer.service";
 import {ModalTimerService} from "./services/modal-timer.service";
 import {SearchItemsService} from "./services/search-items.service";
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {SearchItemsService} from "./services/search-items.service";
     OneItemComponent,
     OrderFormComponent,
     SeeOurCollectionsModalComponent,
-    TextOverflowPipe
+    TextOverflowPipe,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import {MainComponent} from "./components/pages/main/main.component";
 import {CatalogComponent} from "./components/pages/catalog/catalog.component";
 import {OrderComponent} from "./components/pages/order/order.component";
 import {ItemDetailsComponent} from "./components/pages/item-details/item-details.component";
+import {NotFoundComponent} from "./components/pages/not-found/not-found.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'item/:id',
     component: ItemDetailsComponent,
   },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  }
 ];
 
 @NgModule({
