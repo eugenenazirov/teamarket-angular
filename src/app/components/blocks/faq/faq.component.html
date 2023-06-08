@@ -1,73 +1,63 @@
 <section class="answers pt-4 pb-5">
       <div class="container">
           <h2 class="text-center mb-5">Ответы на часто задаваемые вопросы</h2>
-          <div class="accordion col-md-9 m-auto" id="accordionAnswers">
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <div ngbAccordion [closeOthers]="true">
+              <div ngbAccordionItem [collapsed]="false">
+                  <h2 ngbAccordionHeader>
+                      <button ngbAccordionButton type="button">
                           Собираете ли вы подарочные боксы?
                       </button>
                   </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                       data-bs-parent="#accordionAnswers">
-                      <div class="accordion-body">
+                  <div ngbAccordionCollapse>
+                      <div ngbAccordionBody>
                           Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
                       </div>
                   </div>
               </div>
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingTwo">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <div ngbAccordionItem>
+                  <h2 ngbAccordionHeader>
+                      <button ngbAccordionButton type="button">
                           Сколько у вас разновидностей чая?
                       </button>
                   </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                       data-bs-parent="#accordionAnswers">
-                      <div class="accordion-body">
+                  <div ngbAccordionCollapse>
+                      <div ngbAccordionBody>
                           Несчетное количество. За год все не выпьете.
                       </div>
                   </div>
               </div>
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <div ngbAccordionItem>
+                  <h2 ngbAccordionHeader>
+                      <button ngbAccordionButton type="button">
                           В какой срок осуществляется доставка?
                       </button>
                   </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                       data-bs-parent="#accordionAnswers">
-                      <div class="accordion-body">
+                  <div ngbAccordionCollapse>
+                      <div ngbAccordionBody>
                           Точно сказать не можем. Но стопудово быстрее чем почта России.
                       </div>
                   </div>
               </div>
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingFour">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <div ngbAccordionItem>
+                  <h2 ngbAccordionHeader>
+                      <button ngbAccordionButton type="button">
                           У вас обновляется ассортимент?
                       </button>
                   </h2>
-                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                       data-bs-parent="#accordionAnswers">
-                      <div class="accordion-body">
+                  <div ngbAccordionCollapse>
+                      <div ngbAccordionBody>
                           Конечно нет! Мы всю жизнь продаем один и тот же чай! Только никому не говорите...
                       </div>
                   </div>
               </div>
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingFive">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+              <div ngbAccordionItem>
+                  <h2 ngbAccordionHeader>
+                      <button ngbAccordionButton type="button">
                           Какого объема у вас пачки чая?
                       </button>
                   </h2>
-                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                       data-bs-parent="#accordionAnswers">
-                      <div class="accordion-body">
+                  <div ngbAccordionCollapse>
+                      <div ngbAccordionBody>
                           Если объем вашего авто менее 3 литров, то мы дадим вам пачку в пределах этого объема.
                       </div>
                   </div>
