@@ -23,6 +23,7 @@ import {TextOverflowPipe} from './pipes/text-overflow.pipe';
 import {TeaItemService} from "./services/tea-item.service";
 import {SearchItemsService} from "./services/search-items.service";
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     TeaItemService,
