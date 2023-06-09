@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+<<<<<<< Updated upstream
     "gh-pages": "ng build --output-path=gh-pages --base-href=/teamarket-angular/"
+=======
+    "gh-pages": "ng build --output-path=docs --base-href=/teamarket-angular/ --deploy-url=/teamarket-angular/"
+>>>>>>> Stashed changes
   },
   "private": true,
   "dependencies": {
