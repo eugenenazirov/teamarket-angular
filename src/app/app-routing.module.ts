@@ -1,36 +1,34 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {MainComponent} from "./components/pages/main/main.component";
-import {CatalogComponent} from "./components/pages/catalog/catalog.component";
-import {OrderComponent} from "./components/pages/order/order.component";
-import {ItemDetailsComponent} from "./components/pages/item-details/item-details.component";
-import {NotFoundComponent} from "./components/pages/not-found/not-found.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {NotFoundComponent} from "./views/base/pages/not-found/not-found.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./views/main/main.module').then(m => m.MainModule),
+      },
+      {
+        path: 'catalog',
+        loadChildren: () => import('./views/items/items.module').then(m => m.ItemsModule),
+      },
+      {
+        path: 'order',
+        loadChildren: () => import('./views/order/order.module').then(m => m.OrderModule),
+      }
+    ]
   },
-  {
-    path: 'catalog',
-    component: CatalogComponent,
-  },
-  {
-    path: 'order',
-    component: OrderComponent,
-  },
-  {
-    path: 'item/:id',
-    component: ItemDetailsComponent,
-  },
-  {
-    path: '**',
-    component: NotFoundComponent,
-  }
+  // {
+  //   path: '**',
+  //   component: NotFoundComponent,
+  // }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
