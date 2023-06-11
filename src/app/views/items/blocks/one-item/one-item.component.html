@@ -7,7 +7,7 @@
       <img class="image-img" src="{{teaItem.image}}" alt="{{teaItem.title}}">
     </div>
     <div class="price-and-buy d-flex gap-2">
-      <span class="badge price bg-info mt-2">{{teaItem.price | currency : 'KZT' : '₸'}}</span>
+      <span class="badge price bg-info mt-2">{{teaItem.price | currency : 'KZT' : 'symbol'}}</span>
       <button class="mt-2 btn buy btn-primary" (click)="buyItem()">Купить</button>
     </div>
     <p class="description mt-4">{{teaItem.description}}</p>
